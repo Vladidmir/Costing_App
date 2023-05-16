@@ -1,24 +1,25 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {AuthContext} from '../../context/auth-context';
+import {useAppDispatch} from '../../store';
 
 import {Redirect} from './Redirect';
+import {setUser} from '../../store/slices/authSlice';
 
 export const Root = () => {
   const [isTryingLogin, setIsTryingLogin] = useState<boolean>(true);
-  const {authenticate} = useContext(AuthContext);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     async function fetchToken() {
       const storedToken = await AsyncStorage.getItem('token');
       if (storedToken) {
-        authenticate(storedToken);
+        dispatch(setUser({token: storedToken}));
       }
       setIsTryingLogin(false);
     }
     fetchToken();
-  }, [authenticate]);
+  }, [dispatch]);
 
   if (isTryingLogin) {
     return <Text>Loading...</Text>;

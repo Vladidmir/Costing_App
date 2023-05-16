@@ -1,15 +1,15 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import {Button} from '../../components/ui/Button';
 import {HomeScreen} from '../../screens/HomeScreen';
 
-import {AuthContext} from '../../context/auth-context';
 import {Stack} from '../stacksList';
 
 import {Colors} from '../../constants/styles';
+import {useAuth} from '../../hooks/useAuth';
 
 export const AuthenticatedStack = () => {
-  const {logout} = useContext(AuthContext);
+  const {logout} = useAuth();
   return (
     <Stack.Navigator
       screenOptions={{

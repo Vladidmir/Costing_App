@@ -1,17 +1,18 @@
 import React, {FC} from 'react';
 import {StatusBar} from 'react-native';
 
-import {Root} from './src/components/root/Root';
+import {Provider} from 'react-redux';
+import {store} from './src/store';
 
-import AuthContextProvider from './src/context/auth-context';
+import {Root} from './src/components/root/Root';
 
 const App: FC = () => {
   return (
     <>
       <StatusBar />
-      <AuthContextProvider>
+      <Provider store={store}>
         <Root />
-      </AuthContextProvider>
+      </Provider>
     </>
   );
 };

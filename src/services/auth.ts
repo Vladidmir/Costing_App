@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
 
-const API_KEY = 'AIzaSyB_CBGAYzu1k008BgsczknQa2yyFAH2WEo'; //это потом вынесу в env
+import {API_KEY} from '@env';
 
 type AuthMode = 'signUp' | 'signInWithPassword';
 

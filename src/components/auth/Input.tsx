@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
 
-import {Colors} from '../../constants/styles';
+import {GlobalStyles} from '../../constants/styles';
+const {primary100, error500, error50} = GlobalStyles.colors;
 
 interface InputProps {
   label: string;
@@ -51,16 +52,16 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   labelInvalid: {
-    color: Colors.error500,
+    color: error500,
   },
   input: {
     paddingVertical: 8,
     paddingHorizontal: 6,
-    backgroundColor: Colors.primary100,
+    backgroundColor: primary100,
     borderRadius: 4,
     fontSize: 16,
   },
   inputInvalid: {
-    backgroundColor: Colors.error100,
+    backgroundColor: error50,
   },
 });

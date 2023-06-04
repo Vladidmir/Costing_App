@@ -1,7 +1,8 @@
 import React, {ReactNode, FC} from 'react';
 import {Pressable, StyleSheet, Text, View, ViewStyle} from 'react-native';
 
-import {Colors} from '../../constants/styles';
+import {GlobalStyles} from '../../constants/styles';
+const {primary500} = GlobalStyles.colors;
 
 interface IButtonProps {
   children: ReactNode;
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingVertical: 6,
     paddingHorizontal: 12,
-    backgroundColor: Colors.primary500,
+    backgroundColor: primary500,
     elevation: 2,
     shadowColor: 'black',
     shadowOffset: {width: 1, height: 1},

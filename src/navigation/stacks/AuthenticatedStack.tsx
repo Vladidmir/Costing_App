@@ -1,34 +1,20 @@
 import React from 'react';
 
-import {Button} from '../../components/ui/Button';
-import {HomeScreen} from '../../screens/HomeScreen';
-
 import {Stack} from '../stacksList';
 
-import {Colors} from '../../constants/styles';
-import {useAuth} from '../../hooks/useAuth';
+import {ExpensesOverview} from './ExpensesOverview';
+import ManageExpense from '../../screens/ManageExpense';
 
 export const AuthenticatedStack = () => {
-  const {logout} = useAuth();
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerStyle: {backgroundColor: Colors.primary500},
-        headerTintColor: 'white',
-        contentStyle: {backgroundColor: Colors.primary100},
-      }}>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="ExpensesOverview" component={ExpensesOverview} />
+
       <Stack.Screen
-        name="Home"
-        component={HomeScreen}
+        name="ManageExpense"
+        component={ManageExpense}
         options={{
-          headerTitle: '',
-          headerRight: ({tintColor}) => (
-            <Button
-              extraStyles={{borderColor: tintColor, borderWidth: 1}}
-              onPress={logout}>
-              Logout
-            </Button>
-          ),
+          presentation: 'modal',
         }}
       />
     </Stack.Navigator>

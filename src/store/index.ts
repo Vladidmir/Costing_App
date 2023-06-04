@@ -1,13 +1,17 @@
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 
 import authReducer from './slices/authSlice';
+import expensesReducer from './slices/expensesSlice';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 
-const rootReducer = combineReducers({authReducer});
+const rootReducer = combineReducers({authReducer, expensesReducer});
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware(),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,7 +1,6 @@
 import React, {FC, ReactNode} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
-import {Colors} from '../../constants/styles';
 interface IFlatButtonProps {
   children: ReactNode;
   onPress: () => void;
@@ -19,6 +18,9 @@ export const FlatButton: FC<IFlatButtonProps> = ({children, onPress}) => {
   );
 };
 
+import {GlobalStyles} from '../../constants/styles';
+const {primary100} = GlobalStyles.colors;
+
 const styles = StyleSheet.create({
   button: {
     paddingVertical: 6,
@@ -29,6 +31,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    color: Colors.primary100,
+    color: primary100,
   },
 });

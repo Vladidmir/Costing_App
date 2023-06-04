@@ -5,15 +5,16 @@ import {SignupScreen} from '../../screens/SignupScreen';
 
 import {Stack} from '../stacksList';
 
-import {Colors} from '../../constants/styles';
+import {GlobalStyles} from '../../constants/styles';
+const {primary500, primary100} = GlobalStyles.colors;
 
 export const AuthStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerStyle: {backgroundColor: Colors.primary500},
+        headerStyle: {backgroundColor: primary500},
         headerTintColor: 'white',
-        contentStyle: {backgroundColor: Colors.primary100},
+        contentStyle: {backgroundColor: primary100},
       }}>
       <Stack.Screen name="Signin" component={LoginScreen} />
       <Stack.Screen name="Signup" component={SignupScreen} />

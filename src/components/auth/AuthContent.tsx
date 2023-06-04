@@ -5,7 +5,9 @@ import {useNavigation, NavigationProp} from '@react-navigation/native';
 import {FlatButton} from '../ui/FlatButton';
 import {AuthForm} from './AuthForm';
 
-import {Colors} from '../../constants/styles';
+import {GlobalStyles} from '../../constants/styles';
+const {primary800} = GlobalStyles.colors;
+
 import {RootStackParamList} from '../../navigation/stacksList';
 
 interface ICredentials {
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 32,
     padding: 16,
     borderRadius: 8,
-    backgroundColor: Colors.primary800,
+    backgroundColor: primary800,
     elevation: 2,
     shadowColor: 'black',
     shadowOffset: {width: 1, height: 1},
